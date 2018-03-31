@@ -1,6 +1,8 @@
 import * as React from 'react'
 import {
+    Alert,
     Button,
+    DeviceEventEmitter,
     ListView,
     ListViewDataSource,
     Picker,
@@ -9,7 +11,8 @@ import {
     TextInput,
     View,
 } from 'react-native'
-import {connect} from 'react-redux';
+import {connect} from 'react-redux'
+import { getTagId, readTag, writeTag } from 'nfc-ndef-react-native'
 
 import * as Model from '../models'
 import * as Actions from '../redux/actions'
@@ -37,8 +40,38 @@ class ScreenContainer extends React.Component<Props & DispatchProps & StateProps
         }
     }
 
+    readTagId() {
+        getTagId()
+    }
+
+    readTagData() {
+        readTag(); // Read all records in the NDEF Message on the tag.
+    }
+
+    writeTagData() {
+        writeTag(["foo", "bar"]); // Write these strings to individual NDEF records.
+    }
+
     componentWillMount () {
         this.props.initApp()
+    }
+
+    componentDidMount() {
+        DeviceEventEmitter.addListener('onTagError', function (e) {
+            Alert.alert(JSON.stringify(e))
+        })
+
+        DeviceEventEmitter.addListener('onTagDetected', function (e) {
+            Alert.alert(JSON.stringify(e))
+        })
+
+        DeviceEventEmitter.addListener('onTagRead', (e) => {
+            Alert.alert(JSON.stringify(e))
+        })
+
+        DeviceEventEmitter.addListener('onTagWrite', (e) => {
+            Alert.alert(JSON.stringify(e))
+        })
     }
 
     renderFirstScreen() {
