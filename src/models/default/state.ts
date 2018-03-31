@@ -1,7 +1,6 @@
 import * as Model from '../index'
 
-export const AppState: Model.AppState = {
-    nfc: false,
+export const State: Model.State = {
+    nfc: true,
     ok: null,
-    comment: null
 }

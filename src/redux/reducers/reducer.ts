@@ -2,7 +2,7 @@ import {Action} from '../../models/actions'
 import * as Model from '../../models'
 import * as Default from '../../models/default'
 
-const reducer = (state = Default.AppState, action: Action): Model.AppState => {
+const reducer = (state = Default.State, action: Action): Model.State => {
     switch (action.type) {
 
     }

@@ -1,11 +1,10 @@
 import * as Model from '../models'
 
-export interface AppState {
+export interface State {
     nfc: boolean,
     ok: boolean,
-    comment: string
 }
 
-export interface State {
-    app: AppState
+export interface AppState {
+    app: State
 }

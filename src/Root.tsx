@@ -5,19 +5,15 @@ import {
     Text,
     View,
 } from 'react-native'
-import {
-    StackNavigator,
-} from 'react-navigation';
 
 import store from './redux/store'
+import {Screen} from './components/Screen'
 
 export default class Root extends React.Component<{}, void> {
     render () {
         return (
             <Provider store={store}>
-                <View style={[styles.container]}>
-                    <Text>Hello</Text>
-                </View>
+                <Screen/>
             </Provider>
         );
     }
