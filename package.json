@@ -1,0 +1,35 @@
+{
+  "name": "GatherLuggage",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "i": "rm -rf node_modules && npm install",
+    "build": "rm -rf build && tsc --pretty",
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "base-64": "^0.1.0",
+    "react": "15.4.1",
+    "react-native": "0.41",
+    "react-native-vector-icons": "4.5.0",
+    "react-navigation": "1.0.0-beta.13",
+    "react-redux": "5.0.2",
+    "redux": "3.6.0",
+    "redux-thunk": "2.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "0.14.57",
+    "@types/react-native": "0.37.10",
+    "@types/react-redux": "4.4.35",
+    "@types/redux": "3.6.31",
+    "babel-jest": "18.0.0",
+    "babel-preset-react-native": "1.9.1",
+    "jest": "18.0.0",
+    "react-test-renderer": "15.4.1",
+    "typescript": "2.3.3"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
